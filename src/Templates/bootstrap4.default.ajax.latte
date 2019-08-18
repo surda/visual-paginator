@@ -1,0 +1,39 @@
+<div n:snippet="VisualPaginatorSnippet">
+    <ul class="pagination" n:if="$paginator->pageCount > 1">
+        {if $paginator->isFirst()}
+            <li class="page-item disabled">
+                <span class="page-link" tabindex="-1" aria-disabled="true">&laquo;</span>
+            </li>
+        {else}
+            <li class="page-item">
+                <a n:class="'page-link', $useAjax ? 'ajax'" n:href="change!, page => $paginator->page - 1" rel="prev" aria-label="Previous">&laquo;</a>
+            </li>
+        {/if}
+        {foreach $steps as $step}
+            {if $step == $paginator->page}
+                <li class="page-item active" aria-current="page">
+                    <span class="page-link">{$step} <span class="sr-only">(current)</span></span>
+                </li>
+            {else}
+                <li class="page-item">
+                    <a n:class="'page-link', $useAjax ? 'ajax'" n:href="change!, page => $step">{$step}</a>
+                </li>
+            {/if}
+            {if $iterator->nextValue > $step + 1}
+                <li class="page-item disabled">
+                    <span class="page-link" tabindex="-1" aria-disabled="true"><span>…</span></span>
+                </li>
+            {/if}
+        {/foreach}
+        {if $paginator->isLast()}
+            <li class="page-item disabled">
+                <span class="page-link" tabindex="-1" aria-disabled="true">&raquo;</span>
+            </li>
+        {else}
+            <li class="page-item">
+                <a n:class="'page-link', $useAjax ? 'ajax'" n:href="change!, page => $paginator->page + 1" rel="next" aria-label="Next">&raquo;</a>
+            </li>
+        {/if}
+    </ul>
+</div>
+

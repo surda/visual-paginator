@@ -1,0 +1,26 @@
+<div n:snippet="VisualPaginatorSnippet">
+    <ul class="pagination" n:if="$paginator->pageCount > 1">
+        {if $paginator->isFirst()}
+            <li class="page-item disabled">
+                <span class="page-link" tabindex="-1" aria-disabled="true">&laquo;</span>
+            </li>
+        {else}
+            <li class="page-item">
+                <a n:class="'page-link', $useAjax ? 'ajax'" href="{link this, 'page' => $paginator->page - 1}" rel="prev" aria-label="Previous">&laquo;</a>
+            </li>
+        {/if}
+        <li class="page-item disabled">
+            <span class="page-link" tabindex="-1" aria-disabled="true"><span>{$paginator->page} / {$paginator->pageCount}</span></span>
+        </li>
+        {if $paginator->isLast()}
+            <li class="page-item disabled">
+                <span class="page-link" tabindex="-1" aria-disabled="true">&raquo;</span>
+            </li>
+        {else}
+            <li class="page-item">
+                <a n:class="'page-link', $useAjax ? 'ajax'" href="{link this, 'page' => $paginator->page + 1}" rel="next" aria-label="Next">&raquo;</a>
+            </li>
+        {/if}
+    </ul>
+</div>
+
