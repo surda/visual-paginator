@@ -52,8 +52,8 @@ class ProductPresenter extends Nette\Application\UI\Presenter
 
     public function actionDefault(): void
     {
-        /** @var VisualPaginatorControl $ipp */
-        $ipp = $this->getComponent('ipp');
+        /** @var VisualPaginatorControl $vp */
+        $vp = $this->getComponent('vp');
 
         /** @var Paginator $paginator */
         $paginator = $vp->getPaginator();

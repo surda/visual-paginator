@@ -1,7 +1,7 @@
 {
     "name": "surda/visual-paginator",
     "description": "Visual paginator control for Nette Framework",
-    "keywords": ["nette", "control"],
+    "keywords": ["nette", "control", "pagination"],
     "type": "library",
     "homepage": "http://surani.cz",
     "license": "MIT",
