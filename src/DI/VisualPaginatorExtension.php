@@ -5,8 +5,12 @@ namespace Surda\VisualPaginator\DI;
 use Nette\DI\CompilerExtension;
 use Nette\Schema\Expect;
 use Nette\Schema\Schema;
+use stdClass;
 use Surda\VisualPaginator\VisualPaginatorFactory;
 
+/**
+ * @property-read stdClass $config
+ */
 class VisualPaginatorExtension extends CompilerExtension
 {
     /** @var array */
