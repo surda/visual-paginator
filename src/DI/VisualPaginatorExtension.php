@@ -13,7 +13,7 @@ use Surda\VisualPaginator\VisualPaginatorFactory;
  */
 class VisualPaginatorExtension extends CompilerExtension
 {
-    /** @var array */
+    /** @var array<string, string> */
     private $templates = [
         'default' => __DIR__ . '/../Templates/bootstrap4.default.latte',
         'default-ajax' => __DIR__ . '/../Templates/bootstrap4.default.ajax.latte',

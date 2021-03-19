@@ -1,4 +1,10 @@
+# Folders - recursive
+*.expected
+*.actual
+
+# Folders
 /tmp
-/*/output
+
+# Files
 /*.log
 /*.html

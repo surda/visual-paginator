@@ -2,6 +2,9 @@
 
 namespace Surda\VisualPaginator;
 
+/**
+ * @deprecated
+ */
 trait TVisualPaginator
 {
     /** @var VisualPaginatorFactory */

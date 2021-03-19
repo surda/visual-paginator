@@ -11,11 +11,11 @@ before_install:
     - phpenv config-rm xdebug.ini || return 0
 
 install:
+    # Install dependencies
     - travis_retry composer install --no-progress --prefer-dist
 
 script:
-    - composer run-script phpstan
-    - composer run-script tests
+    - make tests
 
 after_failure:
     # Print *.actual content

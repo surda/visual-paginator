@@ -20,7 +20,7 @@ After that you have to register extension in config.neon:
 
 ```yaml
 extensions:
-    visualPaginator: Surda\VisualPaginator\VisualPaginatorExtension
+    visualPaginator: Surda\VisualPaginator\DI\VisualPaginatorExtension
 ```
 
 ## Configuration

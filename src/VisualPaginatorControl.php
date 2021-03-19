@@ -30,7 +30,7 @@ class VisualPaginatorControl extends UI\Control
     /** @var int */
     protected $edges = 1;
 
-    /** @var array */
+    /** @var array<int, mixed> */
     public $onChange;
 
     /**
@@ -49,6 +49,9 @@ class VisualPaginatorControl extends UI\Control
         $template->render();
     }
 
+    /**
+     * @param array<mixed, mixed> $params
+     */
     public function loadState(array $params): void
     {
         parent::loadState($params);
@@ -56,9 +59,8 @@ class VisualPaginatorControl extends UI\Control
         $this->getPaginator()->page = $this->page;
     }
 
-
     /**
-     * @return array
+     * @return array<int, mixed>
      */
     private function getSteps(): array
     {
@@ -69,7 +71,10 @@ class VisualPaginatorControl extends UI\Control
         }
 
         $page = $paginator->page;
-        $arr = range(max($paginator->firstPage, $page - intval($this->displayedPages / 2)), min($paginator->lastPage, $page + intval($this->displayedPages / 2)));
+        $arr = range(
+            max($paginator->firstPage, $page - $this->displayedPages / 2),
+            min($paginator->lastPage, $page + $this->displayedPages / 2)
+        );
         $quotient = (intval($paginator->pageCount) - 1) / $this->edges;
         for ($i = 0; $i <= $this->edges; $i++) {
             $arr[] = round($quotient * $i) + $paginator->firstPage;
@@ -105,7 +110,7 @@ class VisualPaginatorControl extends UI\Control
     public function getPaginator(): Paginator
     {
         if ($this->paginator === NULL) {
-            $this->paginator = new Paginator();
+            $this->setPaginator(new Paginator());
         }
 
         return $this->paginator;
