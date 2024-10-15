@@ -71,13 +71,11 @@ class VisualPaginatorControl extends UI\Control
         }
 
         $page = $paginator->page;
-        $arr = range(
-            max($paginator->firstPage, $page - $this->displayedPages / 2),
-            min($paginator->lastPage, $page + $this->displayedPages / 2)
-        );
-        $quotient = (intval($paginator->pageCount) - 1) / $this->edges;
-        for ($i = 0; $i <= $this->edges; $i++) {
-            $arr[] = round($quotient * $i) + $paginator->firstPage;
+        $arr = range(max($paginator->firstPage, $page - 3), min($paginator->lastPage, $page + 3));
+        $count = 4;
+        $quotient = ($paginator->pageCount - 1) / $count;
+        for ($i = 0; $i <= $count; $i++) {
+            $arr[] = (int) (round($quotient * $i) + $paginator->firstPage);
         }
 
         sort($arr);
